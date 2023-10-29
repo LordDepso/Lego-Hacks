@@ -3,7 +3,6 @@ local FileName = "dvideo.mp4"
 
 local ScreenGui = Instance.new("ScreenGui", game.CoreGui)
 local VideoFrame = Instance.new("VideoFrame", ScreenGui)
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 VideoFrame.Size = UDim2.new(0, 150*2,0, 80*2)
 VideoFrame.Position = UDim2.new(0, 0,1, -VideoFrame.Size.Y.Offset)
 
