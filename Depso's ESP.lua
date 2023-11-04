@@ -11,7 +11,7 @@ _G.DESPConfig = {
 	-------------
 	OtherTeamsOnly = true, -- Hide your team
 	ShowDead = true, -- Continue to hilight dead players
-	CheckVisibility = true, -- Hide if it's not visible 
+	CheckVisibility = false, -- Hide if it's not visible 
 	
 	-------------
 	--  Items  --
