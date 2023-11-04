@@ -70,7 +70,7 @@ function GetColor(Player)
 end
 
 function ToScreen(p)
-	local _, Visible = Camera:WorldToScreenPoint(p)--Camera:WorldToViewportPoint(p)
+	local _, Visible = Camera:WorldToViewportPoint(p)--Camera:WorldToScreenPoint(p)
 	return Vector2.new(_.X, _.Y), Visible
 end
 
