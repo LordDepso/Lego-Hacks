@@ -7,8 +7,8 @@ _G.DESPConfig = {
 	-------------
 	Default_Color = Color3.fromRGB(200,200,200),
 	Rainbow = true,
-	-------------
 	UseTeamColor = true, -- Use the team's color instead of the default
+	-------------
 	OtherTeamsOnly = true, -- Hide your team
 	ShowDead = true, -- Continue to hilight dead players
 	CheckVisibility = true, -- Hide if it's not visible 
