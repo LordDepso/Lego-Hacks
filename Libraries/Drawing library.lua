@@ -1,5 +1,9 @@
+-- Roblox Exploit Drawing library recreation
+
 -- Originally created by MirayXS
 -- Quad support added by depso
+
+-- Docs: https://synapsexdocs.github.io/libraries/drawing/
 
 local Drawing = {}
 
