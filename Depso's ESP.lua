@@ -1,7 +1,7 @@
 -- 4/11/23
 -- depso
 
-_G.DESPConfig = {
+local DefaultConfig = {
 	-------------
 	-- Display --
 	-------------
@@ -24,6 +24,10 @@ _G.DESPConfig = {
 	BoxThickness = 5,
 	BoxOpacity = 0.9
 }
+
+if not _G.DESPConfig then
+	_G.DESPConfig = DefaultConfig
+end
 
 --Drawing.clear()
 
