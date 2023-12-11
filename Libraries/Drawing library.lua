@@ -5,13 +5,19 @@
 
 -- Docs: https://synapsexdocs.github.io/libraries/drawing/
 
+-- Roblox Exploit Drawing library recreation
+
+-- Originally created by MirayXS
+-- Quad support added by depso
+
+-- Docs: https://synapsexdocs.github.io/libraries/drawing/
+
 local Drawing = {}
 
-local GetService, FindFirstChild = game.GetService, game.FindFirstChild
-local IsA = game.IsA
+local Camera = workspace.CurrentCamera
+local CoreGui = game:GetService("Players").LocalPlayer.PlayerGui;
 
-local Camera = FindFirstChild(workspace, "Camera");
-local CoreGui = GetService(game, "Players").LocalPlayer.PlayerGui;
+local DrawingUI = Instance.new("ScreenGui", CoreGui)
 
 local BaseDrawingProperties = setmetatable({
 	Visible = true,
@@ -33,7 +39,7 @@ local BaseDrawingProperties = setmetatable({
 })
 
 Drawing.new = function(Type, UI)
-	UI = UI and IsA(UI, "ScreenGui") and UI or Instance.new("ScreenGui", CoreGui);
+	UI = UI and UI:IsA("ScreenGui") and UI or DrawingUI;
 
 	if (Type == "Line") then
 		local LineProperties = ({
@@ -197,6 +203,7 @@ Drawing.new = function(Type, UI)
 		TextLabel.TextColor3 = TextProperties.Color
 		TextLabel.Visible = TextProperties.Visible
 		TextLabel.BackgroundTransparency = 1
+		
 		TextLabel.TextTransparency = 1 - TextProperties.Transparency
 
 		TextLabel.Parent = UI
@@ -218,6 +225,14 @@ Drawing.new = function(Type, UI)
 				if (Property == "Color") then
 					TextLabel.TextColor3 = Value
 					TextProperties.Color = Value
+				end
+				if (Property == "Outline") then
+					TextLabel.TextStrokeTransparency = Value and 0 or 1
+					TextProperties.Outline = Value
+				end
+				if (Property == "OutlineColor") then
+					TextLabel.TextStrokeColor3 = Value
+					TextProperties.OutlineColor = Value
 				end
 				if (Property == "Transparency") then
 					TextLabel.TextTransparency = 1 - Value
