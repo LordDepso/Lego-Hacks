@@ -12,6 +12,7 @@ local RunService = game:GetService("RunService")
 local CoreGui = not RunService:IsStudio() and game:GetService("Players").LocalPlayer.PlayerGui or game.CoreGui;
 
 local DrawingUI = Instance.new("ScreenGui", CoreGui)
+DrawingUI.ResetOnSpawn = false
 
 local BaseDrawingProperties = setmetatable({
 	Visible = true,
