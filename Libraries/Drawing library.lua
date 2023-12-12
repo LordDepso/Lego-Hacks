@@ -12,10 +12,18 @@
 
 -- Docs: https://synapsexdocs.github.io/libraries/drawing/
 
+-- Roblox Exploit Drawing library recreation
+
+-- Originally created by MirayXS
+-- Quad support added by depso
+
+-- Docs: https://synapsexdocs.github.io/libraries/drawing/
+
 local Drawing = {}
 
 local Camera = workspace.CurrentCamera
-local CoreGui = game:GetService("Players").LocalPlayer.PlayerGui;
+local RunService = game:GetService("RunService")
+local CoreGui = not RunService:IsStudio() and game:GetService("Players").LocalPlayer.PlayerGui or game.CoreGui;
 
 local DrawingUI = Instance.new("ScreenGui", CoreGui)
 
@@ -424,11 +432,11 @@ Drawing.new = function(Type, UI)
 			end),
 			__index = (function(self, Property)
 				if (Property == "Remove") then
-					return (function()
+					return function()
 						for _, Point in next, Points do
 							Point:Remove()
 						end
-					end)
+					end
 				end
 
 				return QuadProperties[Property]
