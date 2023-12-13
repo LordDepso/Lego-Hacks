@@ -9,7 +9,7 @@ local Drawing = {}
 
 local Camera = workspace.CurrentCamera
 local RunService = game:GetService("RunService")
-local CoreGui = not RunService:IsStudio() and game:GetService("Players").LocalPlayer.PlayerGui or game.CoreGui;
+local CoreGui = RunService:IsStudio() and game:GetService("Players").LocalPlayer.PlayerGui or game.CoreGui;
 
 local DrawingUI = Instance.new("ScreenGui", CoreGui)
 DrawingUI.ResetOnSpawn = false
