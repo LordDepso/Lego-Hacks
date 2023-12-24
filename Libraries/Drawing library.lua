@@ -169,7 +169,9 @@ Drawing.new = function(Type, UI)
 				end
 				if (Property == "Transparency") then
 					UIStroke.Transparency = 1 - Value
-					CircleFrame.BackgroundTransparency = 1 - Value
+					if CircleProperties.Filled then
+						CircleFrame.BackgroundTransparency = 1 - Value
+					end
 					CircleProperties.Transparency = Value
 				end
 			end),
