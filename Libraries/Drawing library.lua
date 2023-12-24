@@ -124,7 +124,7 @@ Drawing.new = function(Type, UI)
 			Position = Vector2.new()
 		} + BaseDrawingProperties)
 
-		local CircleFrame = Instance.new("Frame");
+		local CircleFrame = Instance.new("Frame", UI);
 
 		CircleFrame.AnchorPoint = Vector2.new(0.5, 0.5);
 		CircleFrame.BorderSizePixel = 0
@@ -133,11 +133,13 @@ Drawing.new = function(Type, UI)
 		CircleFrame.Visible = CircleProperties.Visible
 		CircleFrame.BackgroundTransparency = CircleProperties.Transparency
 
-		local Corner = Instance.new("UICorner", CircleFrame);
-		Corner.CornerRadius = UDim.new(1, 0);
 		CircleFrame.Size = UDim2.new(0, CircleProperties.Radius, 0, CircleProperties.Radius);
 
-		CircleFrame.Parent = UI
+		local Corner = Instance.new("UICorner", CircleFrame);
+		Corner.CornerRadius = UDim.new(1, 0);
+
+		local UIStroke = Instance.new("UIStroke", CircleFrame);
+		UIStroke.Thickness = 1
 
 		return setmetatable({}, {
 			__newindex = (function(self, Property, Value)
@@ -150,19 +152,25 @@ Drawing.new = function(Type, UI)
 					CircleProperties.Position = Value
 				end
 				if (Property == "Filled") then
-					CircleFrame.BackgroundTransparency = Value == true and 0 or 0.8
+					CircleFrame.BackgroundTransparency = Value == true and 0 or 1
 					CircleProperties.Filled = Value
 				end
 				if (Property == "Color") then
 					CircleFrame.BackgroundColor3 = Value
 					CircleProperties.Color = Value
 				end
+				if (Property == "Thickness") then
+					UIStroke.Thickness = Value
+					CircleProperties.Thickness = Value
+				end
 				if (Property == "Visible") then
 					CircleFrame.Visible = Value
 					CircleProperties.Visible = Value
 				end
 				if (Property == "Transparency") then
-
+					UIStroke.Transparency = 1 - Value
+					CircleFrame.BackgroundTransparency = 1 - Value
+					CircleProperties.Transparency = Value
 				end
 			end),
 			__index = (function(self, Property)
