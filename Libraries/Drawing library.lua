@@ -158,6 +158,7 @@ Drawing.new = function(Type, UI)
 				if (Property == "Color") then
 					CircleFrame.BackgroundColor3 = Value
 					CircleProperties.Color = Value
+					UIStroke.Color = Value
 				end
 				if (Property == "Thickness") then
 					UIStroke.Thickness = Value
